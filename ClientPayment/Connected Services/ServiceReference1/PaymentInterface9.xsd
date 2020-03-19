@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="ORXCore.WebServicesAPI.DTO" elementFormDefault="qualified" targetNamespace="ORXCore.WebServicesAPI.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:57361/PaymentInterface.svc?xsd=xsd14" namespace="ORXCore.WebServicesAPI.DTO.Enums" />
+  <xs:complexType name="ArrayOfMerchantInstruction">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MerchantInstruction" nillable="true" type="tns:MerchantInstruction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMerchantInstruction" nillable="true" type="tns:ArrayOfMerchantInstruction" />
+  <xs:complexType name="MerchantInstruction">
+    <xs:sequence>
+      <xs:element xmlns:q1="ORXCore.WebServicesAPI.DTO.Enums" minOccurs="0" name="CurrencyType" type="q1:CurrencyType" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="MerchantAccountID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="ORXCore.WebServicesAPI.DTO.Enums" minOccurs="0" name="SettlementCurrencyType" type="q2:CurrencyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MerchantInstruction" nillable="true" type="tns:MerchantInstruction" />
+</xs:schema>

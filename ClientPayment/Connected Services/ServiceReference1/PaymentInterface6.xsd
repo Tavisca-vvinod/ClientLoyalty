@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:57361/PaymentInterface.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/PaymentInterface.BusinessComponents" />
+  <xs:import schemaLocation="http://localhost:57361/PaymentInterface.svc?xsd=xsd4" namespace="http://tavisca.com" />
+  <xs:import schemaLocation="http://localhost:57361/PaymentInterface.svc?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/PaymentInterface.POSInterfaces" />
+  <xs:import schemaLocation="http://localhost:57361/PaymentInterface.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/PaymentInterface" />
+  <xs:element name="AuthorizeCreditCard">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/PaymentInterface.BusinessComponents" minOccurs="0" name="authorizeCreditCardRequest" nillable="true" type="q1:AuthorizeCreditCardRequest" />
+        <xs:element minOccurs="0" name="VaultToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AuthorizeCreditCardResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/PaymentInterface.BusinessComponents" minOccurs="0" name="AuthorizeCreditCardResult" nillable="true" type="q2:AuthorizeCreditCardResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReauthorizeCreditCard">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/PaymentInterface.BusinessComponents" minOccurs="0" name="ReAuthFinalPaymentRequest" nillable="true" type="q3:ReAuthFinalPaymentRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReauthorizeCreditCardResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/PaymentInterface.BusinessComponents" minOccurs="0" name="ReauthorizeCreditCardResult" nillable="true" type="q4:ReAuthFinalPaymentResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckFraudCreditCard">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://tavisca.com" minOccurs="0" name="tripFolder" nillable="true" type="q5:TripFolder" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckFraudCreditCardResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckFraudCreditCardResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessCreditCard">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/PaymentInterface.BusinessComponents" minOccurs="0" name="request" nillable="true" type="q6:ProcessCreditCardRequest" />
+        <xs:element minOccurs="0" name="isMAUI" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessCreditCardResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/PaymentInterface.POSInterfaces" minOccurs="0" name="ProcessCreditCardResult" nillable="true" type="q7:TransactionInfoType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReversePayment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/PaymentInterface.BusinessComponents" minOccurs="0" name="ReversePaymentRequest" nillable="true" type="q8:ReversePaymentRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReversePaymentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/PaymentInterface.BusinessComponents" minOccurs="0" name="ReversePaymentResult" nillable="true" type="q9:ReversePaymentResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveSingleUseCard">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/PaymentInterface.BusinessComponents" minOccurs="0" name="singleUseRequest" nillable="true" type="q10:SingleUseCardRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveSingleUseCardResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/PaymentInterface.BusinessComponents" minOccurs="0" name="RetrieveSingleUseCardResult" nillable="true" type="q11:SingleUseCardResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReverseAuthorization">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/PaymentInterface.BusinessComponents" minOccurs="0" name="reverseAuthorizationRequest" nillable="true" type="q12:ReverseAuthorizationRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReverseAuthorizationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/PaymentInterface.BusinessComponents" minOccurs="0" name="ReverseAuthorizationResult" nillable="true" type="q13:ReverseAuthorizationResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPaymentHeaderID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/PaymentInterface.BusinessComponents" minOccurs="0" name="paymentHeaderIdRequest" nillable="true" type="q14:PaymentHeaderIdRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPaymentHeaderIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetPaymentHeaderIDResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessCardByAction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/PaymentInterface" minOccurs="0" name="CreditCard" nillable="true" type="q15:CreditCard" />
+        <xs:element minOccurs="0" name="amount" type="xs:decimal" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/PaymentInterface" minOccurs="0" name="PaymentActions" type="q16:CreditCard.PaymentAction" />
+        <xs:element minOccurs="0" name="TransitCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="RequestBy" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessCardByActionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProcessCardByActionResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessCardByRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/PaymentInterface.BusinessComponents" minOccurs="0" name="request" nillable="true" type="q17:ProcessCreditCardRequest" />
+        <xs:element minOccurs="0" name="throwError" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessCardByRequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProcessCardByRequestResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReversePaymentByAction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="paymentHeaderID" type="xs:int" />
+        <xs:element minOccurs="0" name="TransitCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="RequestBy" nillable="true" type="xs:string" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/PaymentInterface" minOccurs="0" name="paymentAction" type="q18:CreditCard.PaymentAction" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReversePaymentByActionResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProfiles">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/PaymentInterface.BusinessComponents" minOccurs="0" name="request" nillable="true" type="q19:GetProfilesRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProfilesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/PaymentInterface.POSInterfaces" minOccurs="0" name="GetProfilesResult" nillable="true" type="q20:ArrayOfProfile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProvider">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/PaymentInterface.BusinessComponents" minOccurs="0" name="request" nillable="true" type="q21:GetProviderRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProviderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/PaymentInterface.POSInterfaces" minOccurs="0" name="GetProviderResult" nillable="true" type="q22:PaymentProvider" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PaymentSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/PaymentInterface.BusinessComponents" minOccurs="0" name="request" nillable="true" type="q23:PaymentSearchRequest" />
+        <xs:element minOccurs="0" name="clientId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PaymentSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/PaymentInterface.BusinessComponents" minOccurs="0" name="PaymentSearchResult" nillable="true" type="q24:PaymentSearchResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSingleUseCardTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/PaymentInterface.BusinessComponents" minOccurs="0" name="request" nillable="true" type="q25:SingleUseCardTypesRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSingleUseCardTypesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/PaymentInterface.POSInterfaces" minOccurs="0" name="GetSingleUseCardTypesResult" nillable="true" type="q26:ArrayOfSingleUseCardType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPaymentDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/PaymentInterface.BusinessComponents" minOccurs="0" name="request" nillable="true" type="q27:PaymentDetailRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPaymentDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/PaymentInterface.POSInterfaces" minOccurs="0" name="GetPaymentDetailResult" nillable="true" type="q28:Payments" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReauthorizeFinalPaymentByProfileId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/PaymentInterface.BusinessComponents" minOccurs="0" name="request" nillable="true" type="q29:ReauthorizeFinalPaymentByProfileIdRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReauthorizeFinalPaymentByProfileIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/PaymentInterface.BusinessComponents" minOccurs="0" name="ReauthorizeFinalPaymentByProfileIdResult" nillable="true" type="q30:ReAuthFinalPaymentResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateCreditCardToken">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/PaymentInterface.BusinessComponents" minOccurs="0" name="request" nillable="true" type="q31:CreateCreditCardTokenRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateCreditCardTokenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/PaymentInterface.BusinessComponents" minOccurs="0" name="CreateCreditCardTokenResult" nillable="true" type="q32:CreateCreditCardTokenResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveCreditCard">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/PaymentInterface.BusinessComponents" minOccurs="0" name="request" nillable="true" type="q33:RetrieveCreditCardRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveCreditCardResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/PaymentInterface.BusinessComponents" minOccurs="0" name="RetrieveCreditCardResult" nillable="true" type="q34:RetrieveCreditCardResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

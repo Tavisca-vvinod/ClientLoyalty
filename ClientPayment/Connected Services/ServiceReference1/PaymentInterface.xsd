@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Tavisca.TravelNxt.Package.DataContracts" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Tavisca.TravelNxt.Package.DataContracts" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:57361/PaymentInterface.svc?xsd=xsd4" namespace="http://tavisca.com" />
+  <xs:simpleType name="ApplicableType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="BaseRate" />
+      <xs:enumeration value="AddtionalPassengerRate" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ApplicableType" nillable="true" type="tns:ApplicableType" />
+  <xs:simpleType name="FareClassifier">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PerPerson" />
+      <xs:enumeration value="PerUnit" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="FareClassifier" nillable="true" type="tns:FareClassifier" />
+  <xs:complexType name="ArrayOfPackageTax">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PackageTax" nillable="true" type="tns:PackageTax" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPackageTax" nillable="true" type="tns:ArrayOfPackageTax" />
+  <xs:complexType name="PackageTax">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Amount" type="xs:double" />
+      <xs:element minOccurs="0" name="CurrencyCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TaxType" type="tns:ValueType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PackageTax" nillable="true" type="tns:PackageTax" />
+  <xs:simpleType name="ValueType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Absolute" />
+      <xs:enumeration value="Percent" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ValueType" nillable="true" type="tns:ValueType" />
+  <xs:complexType name="GenericFareSource">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://tavisca.com" base="q1:FareSource">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GenericFareSource" nillable="true" type="tns:GenericFareSource" />
+  <xs:complexType name="ArrayOfContactInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ContactInfo" nillable="true" type="tns:ContactInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfContactInfo" nillable="true" type="tns:ArrayOfContactInfo" />
+  <xs:complexType name="ContactInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountId" type="xs:long" />
+      <xs:element xmlns:q2="http://tavisca.com" minOccurs="0" name="AdditionalInfo" nillable="true" type="q2:ArrayOfStateBag" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContactInfo" nillable="true" type="tns:ContactInfo" />
+  <xs:complexType name="ArrayOfAdditionalInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AdditionalInfo" nillable="true" type="tns:AdditionalInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAdditionalInfo" nillable="true" type="tns:ArrayOfAdditionalInfo" />
+  <xs:complexType name="AdditionalInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="KeyField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ValueField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AdditionalInfo" nillable="true" type="tns:AdditionalInfo" />
+  <xs:simpleType name="RuleType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AddonRule" />
+      <xs:enumeration value="FirstBookRule" />
+      <xs:enumeration value="ProductPricingFailureRule" />
+      <xs:enumeration value="AdditionalPassengerRule" />
+      <xs:enumeration value="DiscountRule" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RuleType" nillable="true" type="tns:RuleType" />
+</xs:schema>

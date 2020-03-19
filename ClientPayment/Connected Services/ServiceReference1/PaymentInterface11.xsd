@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PaymentInterface" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PaymentInterface" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:57361/PaymentInterface.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="CreditCard">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreditCardType" type="tns:CreditCard.BankCardType" />
+      <xs:element minOccurs="0" name="CustomClientFields" nillable="true" type="tns:ArrayOfCustomClientField" />
+      <xs:element minOccurs="0" name="Locator" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="avsAddress1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="avsAddress2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="avsCity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="avsCountry" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="avsName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="avsState" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="avsZip" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ccAccountNum" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ccCardVerifyNum" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ccExp" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CreditCard" nillable="true" type="tns:CreditCard" />
+  <xs:simpleType name="CreditCard.BankCardType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="MasterCard">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DinersClub">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">9</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Visa">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">10</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="AmericanExpress">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">11</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Discover">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">12</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CreditCard.BankCardType" nillable="true" type="tns:CreditCard.BankCardType" />
+  <xs:complexType name="ArrayOfCustomClientField">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CustomClientField" nillable="true" type="tns:CustomClientField" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCustomClientField" nillable="true" type="tns:ArrayOfCustomClientField" />
+  <xs:complexType name="CustomClientField">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CustomClientField" nillable="true" type="tns:CustomClientField" />
+  <xs:simpleType name="CreditCard.PaymentAction">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PointsPurchase">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Refund">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="FeesOverages">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Exchange">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CancellationModification">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Void">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Cruise">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">7</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DuplicateCharge">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">9</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="RefundPointsPurchase">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">10</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="AccountingCorrection">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">11</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CreditCard.PaymentAction" nillable="true" type="tns:CreditCard.PaymentAction" />
+</xs:schema>

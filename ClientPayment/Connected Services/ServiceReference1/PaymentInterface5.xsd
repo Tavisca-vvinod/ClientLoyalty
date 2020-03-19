@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PaymentInterface.BusinessComponents" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PaymentInterface.BusinessComponents" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:57361/PaymentInterface.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/PaymentInterface" />
+  <xs:import schemaLocation="http://localhost:57361/PaymentInterface.svc?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/PaymentInterface.POSInterfaces" />
+  <xs:complexType name="AuthorizeCreditCardRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PgBaseRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Amount" type="xs:decimal" />
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/PaymentInterface" minOccurs="0" name="CreditCard" nillable="true" type="q1:CreditCard" />
+          <xs:element minOccurs="0" name="Currency" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AuthorizeCreditCardRequest" nillable="true" type="tns:AuthorizeCreditCardRequest" />
+  <xs:complexType name="PgBaseRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PgBaseObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AgentId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TransitCode" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PgBaseRequest" nillable="true" type="tns:PgBaseRequest" />
+  <xs:complexType name="PgBaseObject">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="PgBaseObject" nillable="true" type="tns:PgBaseObject" />
+  <xs:complexType name="AuthorizeCreditCardResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PgBaseResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AuthorizationId" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AuthorizeCreditCardResponse" nillable="true" type="tns:AuthorizeCreditCardResponse" />
+  <xs:complexType name="PgBaseResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PgBaseObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ResponseCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResponseMessage" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PgBaseResponse" nillable="true" type="tns:PgBaseResponse" />
+  <xs:complexType name="ReAuthFinalPaymentRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PgBaseRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Amount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="AuthorizationId" nillable="true" type="xs:string" />
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/PaymentInterface" minOccurs="0" name="CreditCard" nillable="true" type="q2:CreditCard" />
+          <xs:element minOccurs="0" name="Currency" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Locator" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ZipCode" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ReAuthFinalPaymentRequest" nillable="true" type="tns:ReAuthFinalPaymentRequest" />
+  <xs:complexType name="ReAuthFinalPaymentResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PgBaseResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PaymentHeaderId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ReAuthFinalPaymentResponse" nillable="true" type="tns:ReAuthFinalPaymentResponse" />
+  <xs:complexType name="ProcessCreditCardRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PgBaseRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Amount" type="xs:decimal" />
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/PaymentInterface.POSInterfaces" minOccurs="0" name="AssociatedOrderDetails" nillable="true" type="q3:AssociatedOrderDetails" />
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/PaymentInterface" minOccurs="0" name="CardAction" nillable="true" type="q4:CreditCard.PaymentAction" />
+          <xs:element minOccurs="0" name="ClientID" nillable="true" type="xs:int" />
+          <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/PaymentInterface" minOccurs="0" name="CreditCardToProcess" nillable="true" type="q5:CreditCard" />
+          <xs:element minOccurs="0" name="Currency" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsCharge" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PaymentDetailId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="PaymentHeaderId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ProfileId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TransactionCode" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProcessCreditCardRequest" nillable="true" type="tns:ProcessCreditCardRequest" />
+  <xs:complexType name="ReversePaymentRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PgBaseRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PaymentHeaderId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ReversePaymentRequest" nillable="true" type="tns:ReversePaymentRequest" />
+  <xs:complexType name="ReversePaymentResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PgBaseResponse">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ReversePaymentResponse" nillable="true" type="tns:ReversePaymentResponse" />
+  <xs:complexType name="SingleUseCardRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PgBaseRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Amount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CardType" type="xs:int" />
+          <xs:element minOccurs="0" name="ClientId" type="xs:int" />
+          <xs:element minOccurs="0" name="DaysAllowed" type="xs:int" />
+          <xs:element minOccurs="0" name="Locator" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SingleUseCardRequest" nillable="true" type="tns:SingleUseCardRequest" />
+  <xs:complexType name="SingleUseCardResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PgBaseResponse">
+        <xs:sequence>
+          <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/PaymentInterface.POSInterfaces" minOccurs="0" name="BankSingleUseCard" nillable="true" type="q6:BankCard" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SingleUseCardResponse" nillable="true" type="tns:SingleUseCardResponse" />
+  <xs:complexType name="ReverseAuthorizationRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PgBaseRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AuthorizationAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="AuthorizationCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Currency" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ReverseAuthorizationRequest" nillable="true" type="tns:ReverseAuthorizationRequest" />
+  <xs:complexType name="ReverseAuthorizationResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PgBaseResponse">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ReverseAuthorizationResponse" nillable="true" type="tns:ReverseAuthorizationResponse" />
+  <xs:complexType name="PaymentHeaderIdRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PgBaseRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Locator" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PaymentHeaderIdRequest" nillable="true" type="tns:PaymentHeaderIdRequest" />
+  <xs:complexType name="GetProfilesRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PgBaseRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Locator" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetProfilesRequest" nillable="true" type="tns:GetProfilesRequest" />
+  <xs:complexType name="GetProviderRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PgBaseRequest">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetProviderRequest" nillable="true" type="tns:GetProviderRequest" />
+  <xs:complexType name="PaymentSearchRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PgBaseRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PostalCode" nillable="true" type="xs:string" />
+          <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/PaymentInterface.POSInterfaces" minOccurs="0" name="SearchType" type="q7:PaymentSearchType" />
+          <xs:element minOccurs="0" name="SearchValue" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PaymentSearchRequest" nillable="true" type="tns:PaymentSearchRequest" />
+  <xs:complexType name="PaymentSearchResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PgBaseResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PaymentSearchResults" nillable="true" type="tns:ArrayOfPaymentSearchResult" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PaymentSearchResponse" nillable="true" type="tns:PaymentSearchResponse" />
+  <xs:complexType name="ArrayOfPaymentSearchResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PaymentSearchResult" nillable="true" type="tns:PaymentSearchResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPaymentSearchResult" nillable="true" type="tns:ArrayOfPaymentSearchResult" />
+  <xs:complexType name="PaymentSearchResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Amount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="AuthorizationCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CardNumberMasked" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Currency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MerchantID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NameOnCard" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PaymentDetailID" type="xs:int" />
+      <xs:element minOccurs="0" name="PaymentHeaderID" type="xs:int" />
+      <xs:element minOccurs="0" name="PaymentTransactionCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PostalCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProfileID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PaymentSearchResult" nillable="true" type="tns:PaymentSearchResult" />
+  <xs:complexType name="SingleUseCardTypesRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PgBaseRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ClientID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SingleUseCardTypesRequest" nillable="true" type="tns:SingleUseCardTypesRequest" />
+  <xs:complexType name="PaymentDetailRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PgBaseRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PaymentDetailID" type="xs:int" />
+          <xs:element minOccurs="0" name="PaymentHeaderID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PaymentDetailRequest" nillable="true" type="tns:PaymentDetailRequest" />
+  <xs:complexType name="ReauthorizeFinalPaymentByProfileIdRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PgBaseRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Amount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Locator" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PaymentActionId" type="xs:short" />
+          <xs:element minOccurs="0" name="PaymentHeaderId" type="xs:int" />
+          <xs:element minOccurs="0" name="ProfileId" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ReauthorizeFinalPaymentByProfileIdRequest" nillable="true" type="tns:ReauthorizeFinalPaymentByProfileIdRequest" />
+  <xs:complexType name="CreateCreditCardTokenRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PgBaseRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ClientID" type="xs:int" />
+          <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/PaymentInterface" minOccurs="0" name="CreditCard" nillable="true" type="q8:CreditCard" />
+          <xs:element minOccurs="0" name="Currency" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PaymentHeaderId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CreateCreditCardTokenRequest" nillable="true" type="tns:CreateCreditCardTokenRequest" />
+  <xs:complexType name="CreateCreditCardTokenResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PgBaseResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CreateCreditCardTokenResponse" nillable="true" type="tns:CreateCreditCardTokenResponse" />
+  <xs:complexType name="RetrieveCreditCardRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PgBaseRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ClientID" type="xs:int" />
+          <xs:element minOccurs="0" name="Currency" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PaymentHeaderId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RetrieveCreditCardRequest" nillable="true" type="tns:RetrieveCreditCardRequest" />
+  <xs:complexType name="RetrieveCreditCardResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PgBaseResponse">
+        <xs:sequence>
+          <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/PaymentInterface" minOccurs="0" name="CreditCard" nillable="true" type="q9:CreditCard" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RetrieveCreditCardResponse" nillable="true" type="tns:RetrieveCreditCardResponse" />
+</xs:schema>

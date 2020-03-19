@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PaymentInterfaceWCF" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="WSHttpBinding_IPaymentInterface_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:57361/PaymentInterface.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:57361/PaymentInterface.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:57361/PaymentInterface.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/PaymentInterface.BusinessComponents" />
+      <xsd:import schemaLocation="http://localhost:57361/PaymentInterface.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/PaymentInterface" />
+      <xsd:import schemaLocation="http://localhost:57361/PaymentInterface.svc?xsd=xsd4" namespace="http://tavisca.com" />
+      <xsd:import schemaLocation="http://localhost:57361/PaymentInterface.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:57361/PaymentInterface.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Tavisca.TravelNxt.Trips.DataContracts" />
+      <xsd:import schemaLocation="http://localhost:57361/PaymentInterface.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/Tavisca.TravelNxt.Package.DataContracts" />
+      <xsd:import schemaLocation="http://localhost:57361/PaymentInterface.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/Tavisca.TravelNxt.Air.DataContracts" />
+      <xsd:import schemaLocation="http://localhost:57361/PaymentInterface.svc?xsd=xsd9" namespace="http://tavisca.com/sharedtypes" />
+      <xsd:import schemaLocation="http://localhost:57361/PaymentInterface.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/Tavisca.TravelNxt.Hotel.DataContracts" />
+      <xsd:import schemaLocation="http://localhost:57361/PaymentInterface.svc?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/Tavisca.TravelNxt.Content.DataContracts" />
+      <xsd:import schemaLocation="http://localhost:57361/PaymentInterface.svc?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/PaymentInterface.POSInterfaces" />
+      <xsd:import schemaLocation="http://localhost:57361/PaymentInterface.svc?xsd=xsd13" namespace="ORXCore.WebServicesAPI.DTO" />
+      <xsd:import schemaLocation="http://localhost:57361/PaymentInterface.svc?xsd=xsd14" namespace="ORXCore.WebServicesAPI.DTO.Enums" />
+      <xsd:import schemaLocation="http://localhost:57361/PaymentInterface.svc?xsd=xsd15" namespace="http://schemas.datacontract.org/2004/07/ORXCore.LINQ.CommerceEntities" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IPaymentInterface_AuthorizeCreditCard_InputMessage">
+    <wsdl:part name="parameters" element="tns:AuthorizeCreditCard" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentInterface_AuthorizeCreditCard_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AuthorizeCreditCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentInterface_ReauthorizeCreditCard_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReauthorizeCreditCard" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentInterface_ReauthorizeCreditCard_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReauthorizeCreditCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentInterface_CheckFraudCreditCard_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckFraudCreditCard" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentInterface_CheckFraudCreditCard_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckFraudCreditCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentInterface_ProcessCreditCard_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessCreditCard" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentInterface_ProcessCreditCard_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessCreditCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentInterface_ReversePayment_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReversePayment" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentInterface_ReversePayment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReversePaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentInterface_RetrieveSingleUseCard_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveSingleUseCard" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentInterface_RetrieveSingleUseCard_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveSingleUseCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentInterface_ReverseAuthorization_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReverseAuthorization" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentInterface_ReverseAuthorization_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReverseAuthorizationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentInterface_GetPaymentHeaderID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPaymentHeaderID" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentInterface_GetPaymentHeaderID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPaymentHeaderIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentInterface_ProcessCardByAction_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessCardByAction" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentInterface_ProcessCardByAction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessCardByActionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentInterface_ProcessCardByRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessCardByRequest" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentInterface_ProcessCardByRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessCardByRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentInterface_ReversePaymentByAction_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReversePaymentByAction" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentInterface_ReversePaymentByAction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReversePaymentByActionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentInterface_GetProfiles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProfiles" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentInterface_GetProfiles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProfilesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentInterface_GetProvider_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProvider" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentInterface_GetProvider_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProviderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentInterface_PaymentSearch_InputMessage">
+    <wsdl:part name="parameters" element="tns:PaymentSearch" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentInterface_PaymentSearch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PaymentSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentInterface_GetSingleUseCardTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSingleUseCardTypes" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentInterface_GetSingleUseCardTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSingleUseCardTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentInterface_GetPaymentDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPaymentDetail" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentInterface_GetPaymentDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPaymentDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentInterface_ReauthorizeFinalPaymentByProfileId_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReauthorizeFinalPaymentByProfileId" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentInterface_ReauthorizeFinalPaymentByProfileId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReauthorizeFinalPaymentByProfileIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentInterface_CreateCreditCardToken_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCreditCardToken" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentInterface_CreateCreditCardToken_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCreditCardTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentInterface_RetrieveCreditCard_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveCreditCard" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentInterface_RetrieveCreditCard_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveCreditCardResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IPaymentInterface">
+    <wsdl:operation name="AuthorizeCreditCard">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentInterface/AuthorizeCreditCard" message="tns:IPaymentInterface_AuthorizeCreditCard_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentInterface/AuthorizeCreditCardResponse" message="tns:IPaymentInterface_AuthorizeCreditCard_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReauthorizeCreditCard">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentInterface/ReauthorizeCreditCard" message="tns:IPaymentInterface_ReauthorizeCreditCard_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentInterface/ReauthorizeCreditCardResponse" message="tns:IPaymentInterface_ReauthorizeCreditCard_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckFraudCreditCard">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentInterface/CheckFraudCreditCard" message="tns:IPaymentInterface_CheckFraudCreditCard_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentInterface/CheckFraudCreditCardResponse" message="tns:IPaymentInterface_CheckFraudCreditCard_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessCreditCard">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentInterface/ProcessCreditCard" message="tns:IPaymentInterface_ProcessCreditCard_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentInterface/ProcessCreditCardResponse" message="tns:IPaymentInterface_ProcessCreditCard_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReversePayment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentInterface/ReversePayment" message="tns:IPaymentInterface_ReversePayment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentInterface/ReversePaymentResponse" message="tns:IPaymentInterface_ReversePayment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveSingleUseCard">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentInterface/RetrieveSingleUseCard" message="tns:IPaymentInterface_RetrieveSingleUseCard_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentInterface/RetrieveSingleUseCardResponse" message="tns:IPaymentInterface_RetrieveSingleUseCard_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReverseAuthorization">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentInterface/ReverseAuthorization" message="tns:IPaymentInterface_ReverseAuthorization_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentInterface/ReverseAuthorizationResponse" message="tns:IPaymentInterface_ReverseAuthorization_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentHeaderID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentInterface/GetPaymentHeaderID" message="tns:IPaymentInterface_GetPaymentHeaderID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentInterface/GetPaymentHeaderIDResponse" message="tns:IPaymentInterface_GetPaymentHeaderID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessCardByAction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentInterface/ProcessCardByAction" message="tns:IPaymentInterface_ProcessCardByAction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentInterface/ProcessCardByActionResponse" message="tns:IPaymentInterface_ProcessCardByAction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessCardByRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentInterface/ProcessCardByRequest" message="tns:IPaymentInterface_ProcessCardByRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentInterface/ProcessCardByRequestResponse" message="tns:IPaymentInterface_ProcessCardByRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReversePaymentByAction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentInterface/ReversePaymentByAction" message="tns:IPaymentInterface_ReversePaymentByAction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentInterface/ReversePaymentByActionResponse" message="tns:IPaymentInterface_ReversePaymentByAction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProfiles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentInterface/GetProfiles" message="tns:IPaymentInterface_GetProfiles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentInterface/GetProfilesResponse" message="tns:IPaymentInterface_GetProfiles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProvider">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentInterface/GetProvider" message="tns:IPaymentInterface_GetProvider_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentInterface/GetProviderResponse" message="tns:IPaymentInterface_GetProvider_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PaymentSearch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentInterface/PaymentSearch" message="tns:IPaymentInterface_PaymentSearch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentInterface/PaymentSearchResponse" message="tns:IPaymentInterface_PaymentSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleUseCardTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentInterface/GetSingleUseCardTypes" message="tns:IPaymentInterface_GetSingleUseCardTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentInterface/GetSingleUseCardTypesResponse" message="tns:IPaymentInterface_GetSingleUseCardTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentInterface/GetPaymentDetail" message="tns:IPaymentInterface_GetPaymentDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentInterface/GetPaymentDetailResponse" message="tns:IPaymentInterface_GetPaymentDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReauthorizeFinalPaymentByProfileId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentInterface/ReauthorizeFinalPaymentByProfileId" message="tns:IPaymentInterface_ReauthorizeFinalPaymentByProfileId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentInterface/ReauthorizeFinalPaymentByProfileIdResponse" message="tns:IPaymentInterface_ReauthorizeFinalPaymentByProfileId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateCreditCardToken">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentInterface/CreateCreditCardToken" message="tns:IPaymentInterface_CreateCreditCardToken_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentInterface/CreateCreditCardTokenResponse" message="tns:IPaymentInterface_CreateCreditCardToken_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveCreditCard">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentInterface/RetrieveCreditCard" message="tns:IPaymentInterface_RetrieveCreditCard_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentInterface/RetrieveCreditCardResponse" message="tns:IPaymentInterface_RetrieveCreditCard_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSHttpBinding_IPaymentInterface" type="tns:IPaymentInterface">
+    <wsp:PolicyReference URI="#WSHttpBinding_IPaymentInterface_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AuthorizeCreditCard">
+      <soap12:operation soapAction="http://tempuri.org/IPaymentInterface/AuthorizeCreditCard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReauthorizeCreditCard">
+      <soap12:operation soapAction="http://tempuri.org/IPaymentInterface/ReauthorizeCreditCard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckFraudCreditCard">
+      <soap12:operation soapAction="http://tempuri.org/IPaymentInterface/CheckFraudCreditCard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessCreditCard">
+      <soap12:operation soapAction="http://tempuri.org/IPaymentInterface/ProcessCreditCard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReversePayment">
+      <soap12:operation soapAction="http://tempuri.org/IPaymentInterface/ReversePayment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveSingleUseCard">
+      <soap12:operation soapAction="http://tempuri.org/IPaymentInterface/RetrieveSingleUseCard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReverseAuthorization">
+      <soap12:operation soapAction="http://tempuri.org/IPaymentInterface/ReverseAuthorization" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentHeaderID">
+      <soap12:operation soapAction="http://tempuri.org/IPaymentInterface/GetPaymentHeaderID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessCardByAction">
+      <soap12:operation soapAction="http://tempuri.org/IPaymentInterface/ProcessCardByAction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessCardByRequest">
+      <soap12:operation soapAction="http://tempuri.org/IPaymentInterface/ProcessCardByRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReversePaymentByAction">
+      <soap12:operation soapAction="http://tempuri.org/IPaymentInterface/ReversePaymentByAction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProfiles">
+      <soap12:operation soapAction="http://tempuri.org/IPaymentInterface/GetProfiles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProvider">
+      <soap12:operation soapAction="http://tempuri.org/IPaymentInterface/GetProvider" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PaymentSearch">
+      <soap12:operation soapAction="http://tempuri.org/IPaymentInterface/PaymentSearch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleUseCardTypes">
+      <soap12:operation soapAction="http://tempuri.org/IPaymentInterface/GetSingleUseCardTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentDetail">
+      <soap12:operation soapAction="http://tempuri.org/IPaymentInterface/GetPaymentDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReauthorizeFinalPaymentByProfileId">
+      <soap12:operation soapAction="http://tempuri.org/IPaymentInterface/ReauthorizeFinalPaymentByProfileId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCreditCardToken">
+      <soap12:operation soapAction="http://tempuri.org/IPaymentInterface/CreateCreditCardToken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveCreditCard">
+      <soap12:operation soapAction="http://tempuri.org/IPaymentInterface/RetrieveCreditCard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PaymentInterfaceWCF">
+    <wsdl:port name="WSHttpBinding_IPaymentInterface" binding="tns:WSHttpBinding_IPaymentInterface">
+      <soap12:address location="http://localhost:57361/PaymentInterface.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://localhost:57361/PaymentInterface.svc</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

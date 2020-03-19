@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="3bf47feb-2f83-43d8-830f-7edbb7947df0" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:57361/PaymentInterface.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PaymentInterface.xsd" MetadataType="Schema" ID="8efe16aa-ac35-4a73-893f-b00878f33cd3" SourceId="1" SourceUrl="http://localhost:57361/PaymentInterface.svc?xsd=xsd7" />
+    <MetadataFile FileName="PaymentInterface1.xsd" MetadataType="Schema" ID="ab02f3ea-51c3-4281-b5f6-9a5d276d25ab" SourceId="1" SourceUrl="http://localhost:57361/PaymentInterface.svc?xsd=xsd4" />
+    <MetadataFile FileName="PaymentInterface2.xsd" MetadataType="Schema" ID="719a5696-4b68-4c4d-9115-6b141596ade2" SourceId="1" SourceUrl="http://localhost:57361/PaymentInterface.svc?xsd=xsd5" />
+    <MetadataFile FileName="PaymentInterface3.xsd" MetadataType="Schema" ID="bf6caf49-bde1-41d1-bc21-3114eba11dc5" SourceId="1" SourceUrl="http://localhost:57361/PaymentInterface.svc?xsd=xsd9" />
+    <MetadataFile FileName="PaymentInterface4.xsd" MetadataType="Schema" ID="65af636d-ce83-4860-a4e4-581952bb6d8d" SourceId="1" SourceUrl="http://localhost:57361/PaymentInterface.svc?xsd=xsd11" />
+    <MetadataFile FileName="PaymentInterface5.xsd" MetadataType="Schema" ID="aacccc22-8a25-4278-b81b-968542906020" SourceId="1" SourceUrl="http://localhost:57361/PaymentInterface.svc?xsd=xsd2" />
+    <MetadataFile FileName="PaymentInterface6.xsd" MetadataType="Schema" ID="d74f88ef-0db0-4897-8f0f-6173af3a8c24" SourceId="1" SourceUrl="http://localhost:57361/PaymentInterface.svc?xsd=xsd0" />
+    <MetadataFile FileName="PaymentInterface7.xsd" MetadataType="Schema" ID="82398ffd-b93d-4c5d-a73e-ffb8c38f441f" SourceId="1" SourceUrl="http://localhost:57361/PaymentInterface.svc?xsd=xsd6" />
+    <MetadataFile FileName="PaymentInterfaceWCF.wsdl" MetadataType="Wsdl" ID="42b5cbe2-8441-4eac-a747-6ed8f43b1bfa" SourceId="1" SourceUrl="http://localhost:57361/PaymentInterface.svc?wsdl" />
+    <MetadataFile FileName="PaymentInterface8.xsd" MetadataType="Schema" ID="ef546807-9144-453e-af94-97deae14bce4" SourceId="1" SourceUrl="http://localhost:57361/PaymentInterface.svc?xsd=xsd8" />
+    <MetadataFile FileName="PaymentInterface9.xsd" MetadataType="Schema" ID="b550fa5c-ec8f-4130-a506-b4d00caafeb3" SourceId="1" SourceUrl="http://localhost:57361/PaymentInterface.svc?xsd=xsd13" />
+    <MetadataFile FileName="PaymentInterface10.xsd" MetadataType="Schema" ID="18fb97b5-c2f6-4e70-b954-fe965694a868" SourceId="1" SourceUrl="http://localhost:57361/PaymentInterface.svc?xsd=xsd12" />
+    <MetadataFile FileName="PaymentInterface11.xsd" MetadataType="Schema" ID="696af2d1-42e6-469d-9733-e98c2c56474d" SourceId="1" SourceUrl="http://localhost:57361/PaymentInterface.svc?xsd=xsd3" />
+    <MetadataFile FileName="PaymentInterface12.xsd" MetadataType="Schema" ID="62a9b6b8-3498-4949-8fbe-8ccbf9622e9a" SourceId="1" SourceUrl="http://localhost:57361/PaymentInterface.svc?xsd=xsd10" />
+    <MetadataFile FileName="PaymentInterface13.xsd" MetadataType="Schema" ID="50f229fc-7515-4afc-91d6-f7b9d1b60cf6" SourceId="1" SourceUrl="http://localhost:57361/PaymentInterface.svc?xsd=xsd1" />
+    <MetadataFile FileName="PaymentInterface14.xsd" MetadataType="Schema" ID="af3a525b-a416-43fc-a0f7-4e5dcd6170fa" SourceId="1" SourceUrl="http://localhost:57361/PaymentInterface.svc?xsd=xsd15" />
+    <MetadataFile FileName="PaymentInterface15.xsd" MetadataType="Schema" ID="a9e765d9-35ce-477e-8f90-9e9d7652ef86" SourceId="1" SourceUrl="http://localhost:57361/PaymentInterface.svc?xsd=xsd14" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
