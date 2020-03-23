@@ -315,6 +315,8 @@ namespace PaymentInterface.BusinessComponents
         
         private decimal AmountField;
         
+        private PaymentInterface.AssociatedOrderDetails AssociatedOrderDetailsField;
+        
         private string AuthorizationIdField;
         
         private PaymentInterface.CreditCard CreditCardField;
@@ -335,6 +337,19 @@ namespace PaymentInterface.BusinessComponents
             set
             {
                 this.AmountField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public PaymentInterface.AssociatedOrderDetails AssociatedOrderDetails
+        {
+            get
+            {
+                return this.AssociatedOrderDetailsField;
+            }
+            set
+            {
+                this.AssociatedOrderDetailsField = value;
             }
         }
         
@@ -412,7 +427,7 @@ namespace PaymentInterface.BusinessComponents
         
         private decimal AmountField;
         
-        private PaymentInterface.POSInterfaces.AssociatedOrderDetails AssociatedOrderDetailsField;
+        private PaymentInterface.AssociatedOrderDetails AssociatedOrderDetailsField;
         
         private System.Nullable<PaymentInterface.CreditCard.PaymentAction> CardActionField;
         
@@ -446,7 +461,7 @@ namespace PaymentInterface.BusinessComponents
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PaymentInterface.POSInterfaces.AssociatedOrderDetails AssociatedOrderDetails
+        public PaymentInterface.AssociatedOrderDetails AssociatedOrderDetails
         {
             get
             {
@@ -686,11 +701,26 @@ namespace PaymentInterface.BusinessComponents
     public partial class ReverseAuthorizationRequest : PaymentInterface.BusinessComponents.PgBaseRequest
     {
         
+        private PaymentInterface.AssociatedOrderDetails AssociatedOrderDetailsField;
+        
         private decimal AuthorizationAmountField;
         
         private string AuthorizationCodeField;
         
         private string CurrencyField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public PaymentInterface.AssociatedOrderDetails AssociatedOrderDetails
+        {
+            get
+            {
+                return this.AssociatedOrderDetailsField;
+            }
+            set
+            {
+                this.AssociatedOrderDetailsField = value;
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public decimal AuthorizationAmount
@@ -1118,6 +1148,8 @@ namespace PaymentInterface.BusinessComponents
         
         private decimal AmountField;
         
+        private PaymentInterface.AssociatedOrderDetails AssociatedOrderDetailsField;
+        
         private PaymentInterface.CreditCard CreditCardField;
         
         private string CurrencyField;
@@ -1132,6 +1164,19 @@ namespace PaymentInterface.BusinessComponents
             set
             {
                 this.AmountField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public PaymentInterface.AssociatedOrderDetails AssociatedOrderDetails
+        {
+            get
+            {
+                return this.AssociatedOrderDetailsField;
+            }
+            set
+            {
+                this.AssociatedOrderDetailsField = value;
             }
         }
         
@@ -1397,6 +1442,42 @@ namespace PaymentInterface
 {
     using System.Runtime.Serialization;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AssociatedOrderDetails", Namespace="http://schemas.datacontract.org/2004/07/PaymentInterface")]
+    public partial class AssociatedOrderDetails : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private PaymentInterface.RegionDetails RegionDetailsField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public PaymentInterface.RegionDetails RegionDetails
+        {
+            get
+            {
+                return this.RegionDetailsField;
+            }
+            set
+            {
+                this.RegionDetailsField = value;
+            }
+        }
+    }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1733,6 +1814,57 @@ namespace PaymentInterface
             set
             {
                 this.ValueField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RegionDetails", Namespace="http://schemas.datacontract.org/2004/07/PaymentInterface")]
+    public partial class RegionDetails : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string CountryCodeField;
+        
+        private string StateCodeField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CountryCode
+        {
+            get
+            {
+                return this.CountryCodeField;
+            }
+            set
+            {
+                this.CountryCodeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string StateCode
+        {
+            get
+            {
+                return this.StateCodeField;
+            }
+            set
+            {
+                this.StateCodeField = value;
             }
         }
     }
@@ -2110,93 +2242,6 @@ namespace PaymentInterface.POSInterfaces
             set
             {
                 this.BankCardNumberField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AssociatedOrderDetails", Namespace="http://schemas.datacontract.org/2004/07/PaymentInterface.POSInterfaces")]
-    public partial class AssociatedOrderDetails : object, System.Runtime.Serialization.IExtensibleDataObject
-    {
-        
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private PaymentInterface.POSInterfaces.RegionDetails RegionDetailsField;
-        
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
-        {
-            get
-            {
-                return this.extensionDataField;
-            }
-            set
-            {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public PaymentInterface.POSInterfaces.RegionDetails RegionDetails
-        {
-            get
-            {
-                return this.RegionDetailsField;
-            }
-            set
-            {
-                this.RegionDetailsField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="RegionDetails", Namespace="http://schemas.datacontract.org/2004/07/PaymentInterface.POSInterfaces")]
-    public partial class RegionDetails : object, System.Runtime.Serialization.IExtensibleDataObject
-    {
-        
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private string CountryCodeField;
-        
-        private string StateCodeField;
-        
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
-        {
-            get
-            {
-                return this.extensionDataField;
-            }
-            set
-            {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CountryCode
-        {
-            get
-            {
-                return this.CountryCodeField;
-            }
-            set
-            {
-                this.CountryCodeField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string StateCode
-        {
-            get
-            {
-                return this.StateCodeField;
-            }
-            set
-            {
-                this.StateCodeField = value;
             }
         }
     }
@@ -29864,6 +29909,8 @@ namespace ORXCore.WebServicesAPI.DTO
         
         private string MerchantAccountIDField;
         
+        private System.Nullable<int> RegionIDField;
+        
         private ORXCore.WebServicesAPI.DTO.Enums.CurrencyType SettlementCurrencyTypeField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
@@ -29914,6 +29961,19 @@ namespace ORXCore.WebServicesAPI.DTO
             set
             {
                 this.MerchantAccountIDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> RegionID
+        {
+            get
+            {
+                return this.RegionIDField;
+            }
+            set
+            {
+                this.RegionIDField = value;
             }
         }
         
