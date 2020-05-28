@@ -15,12 +15,6 @@ namespace ClientOrder
         {
             OrderClient client = new OrderClient();
             ((IContextChannel)client.InnerChannel).OperationTimeout = new TimeSpan(0, 30, 0);
-            //client.AddTaxValuesAsync(new Tax()
-            //{
-            //    Amount = 10,
-            //    BaseEquivAmount = 100,
-            //    BaseEquivCurrency = "USD"
-            //});
             var response = client.ProcessOrderAsync(GetTripFolder());
         }
 
