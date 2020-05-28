@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="ORXCore.WebServicesAPI.DTO" elementFormDefault="qualified" targetNamespace="ORXCore.WebServicesAPI.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:57361/Order.svc?xsd=xsd13" namespace="ORXCore.WebServicesAPI.DTO.Enums" />
+  <xs:complexType name="ErrorMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResourseName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="ORXCore.WebServicesAPI.DTO.Enums" minOccurs="0" name="Type" type="q1:ErrorMessageType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ErrorMessage" nillable="true" type="tns:ErrorMessage" />
+  <xs:complexType name="Address">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PostalCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="ORXCore.WebServicesAPI.DTO.Enums" minOccurs="0" name="Type" type="q2:AddressType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Address" nillable="true" type="tns:Address" />
+  <xs:complexType name="ArrayOfFee">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Fee" nillable="true" type="tns:Fee" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFee" nillable="true" type="tns:ArrayOfFee" />
+  <xs:complexType name="Fee">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Amount" type="xs:decimal" />
+      <xs:element xmlns:q3="ORXCore.WebServicesAPI.DTO.Enums" minOccurs="0" name="Currency" type="q3:CurrencyType" />
+      <xs:element xmlns:q4="ORXCore.WebServicesAPI.DTO.Enums" minOccurs="0" name="Type" type="q4:FeeType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Fee" nillable="true" type="tns:Fee" />
+</xs:schema>

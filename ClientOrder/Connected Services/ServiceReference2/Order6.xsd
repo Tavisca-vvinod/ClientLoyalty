@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Tavisca.TravelNxt.Content.DataContracts" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Tavisca.TravelNxt.Content.DataContracts" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:57361/Order.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:57361/Order.svc?xsd=xsd2" namespace="http://tavisca.com" />
+  <xs:complexType name="ContentRetrieveCriterion">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://tavisca.com" base="q1:TripSearchCriterion">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ContentTypes" nillable="true" type="q2:ArrayOfstring" />
+          <xs:element minOccurs="0" name="Location" nillable="true" type="q1:Location" />
+          <xs:element minOccurs="0" name="ProcessingInfo" nillable="true" type="q1:HotelSearchProcessingInfo" />
+          <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SearchCategories" nillable="true" type="q3:ArrayOfstring" />
+          <xs:element minOccurs="0" name="SearchPattern" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Tags" nillable="true" type="q1:ArrayOfTag" />
+          <xs:element minOccurs="0" name="TravelPreference" nillable="true" type="q1:HotelSearchPreference" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ContentRetrieveCriterion" nillable="true" type="tns:ContentRetrieveCriterion" />
+</xs:schema>

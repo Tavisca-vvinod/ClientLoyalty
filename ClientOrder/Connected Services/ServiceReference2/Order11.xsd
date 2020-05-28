@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:57361/Order.svc?xsd=xsd2" namespace="http://tavisca.com" />
+  <xs:import schemaLocation="http://localhost:57361/Order.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/ORXCore.Common" />
+  <xs:import schemaLocation="http://localhost:57361/Order.svc?xsd=xsd11" namespace="ORXCore.WebServicesAPI" />
+  <xs:import schemaLocation="http://localhost:57361/Order.svc?xsd=xsd15" namespace="http://schemas.datacontract.org/2004/07/ORXCore.WebServicesAPI.Order" />
+  <xs:import schemaLocation="http://localhost:57361/Order.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:57361/Order.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:57361/Order.svc?xsd=xsd17" namespace="http://schemas.datacontract.org/2004/07/ORXCore.LINQ.OrderEntities" />
+  <xs:element name="ProcessOrder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://tavisca.com" minOccurs="0" name="orderInfo" nillable="true" type="q1:TripFolder" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessOrderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ORXCore.Common" minOccurs="0" name="ProcessOrderResult" nillable="true" type="q2:OrderResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddTaxValues">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://tavisca.com" minOccurs="0" name="tax" nillable="true" type="q3:Tax" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddTaxValuesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddTaxValuesResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NotifyOfScheduleChange">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="ORXCore.WebServicesAPI" minOccurs="0" name="scheduleChangeNotification" nillable="true" type="q4:OrderNotifyOfScheduleChangeRQ" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NotifyOfScheduleChangeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="ORXCore.WebServicesAPI" minOccurs="0" name="NotifyOfScheduleChangeResult" nillable="true" type="q5:OrderNotifyOfScheduleChangeRS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessRefund">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ORXCore.WebServicesAPI.Order" minOccurs="0" name="cancelInfo" nillable="true" type="q6:OnlineRefundRQ" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessRefundResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ORXCore.WebServicesAPI.Order" minOccurs="0" name="ProcessRefundResult" nillable="true" type="q7:OnlineRefundRS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ApplyTripCartRules">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://tavisca.com" minOccurs="0" name="folder" nillable="true" type="q8:TripFolder" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ApplyTripCartRulesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="ORXCore.WebServicesAPI" minOccurs="0" name="ApplyTripCartRulesResult" nillable="true" type="q9:TripCartRS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ApplyCartLevelTripCartRules">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://tavisca.com" minOccurs="0" name="folder" nillable="true" type="q10:TripFolder" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ApplyCartLevelTripCartRulesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="ORXCore.WebServicesAPI" minOccurs="0" name="ApplyCartLevelTripCartRulesResult" nillable="true" type="q11:TripCartRS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ApplyTripCartRulesByTripCartRQ">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="transit" type="q12:guid" />
+        <xs:element xmlns:q13="ORXCore.WebServicesAPI" minOccurs="0" name="tripCartRQ" nillable="true" type="q13:TripCartRQ" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ApplyTripCartRulesByTripCartRQResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="ORXCore.WebServicesAPI" minOccurs="0" name="ApplyTripCartRulesByTripCartRQResult" nillable="true" type="q14:TripCartRS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ApplyTripCartFeeRules">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="transitCode" nillable="true" type="xs:string" />
+        <xs:element xmlns:q15="ORXCore.WebServicesAPI" minOccurs="0" name="tripCartFeeRQ" nillable="true" type="q15:TripCartFeeRQ" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ApplyTripCartFeeRulesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="ORXCore.WebServicesAPI" minOccurs="0" name="ApplyTripCartFeeRulesResult" nillable="true" type="q16:TripCartFeeRS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HistoricalCartValidation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="ORXCore.WebServicesAPI" minOccurs="0" name="validationRQ" nillable="true" type="q17:ValidationRQ" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HistoricalCartValidationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="ORXCore.WebServicesAPI" minOccurs="0" name="HistoricalCartValidationResult" nillable="true" type="q18:ValidationRS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RewardBinValidation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="transitCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="bin" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RewardBinValidationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="ORXCore.WebServicesAPI" minOccurs="0" name="RewardBinValidationResult" nillable="true" type="q19:ValidationRS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecordCancelDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/ORXCore.WebServicesAPI.Order" minOccurs="0" name="cancelDetails" nillable="true" type="q20:RecordCancelDetailsRQ" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecordCancelDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RecordCancelDetailsResult" nillable="true" type="q21:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertOrderRefundFailures">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="orderId" type="xs:int" />
+        <xs:element minOccurs="0" name="requestedBy" nillable="true" type="xs:string" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/ORXCore.LINQ.OrderEntities" minOccurs="0" name="currencyType" type="q22:CurrencyType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertOrderRefundFailuresResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveOrderComponentPendingCashRefund">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/ORXCore.WebServicesAPI.Order" minOccurs="0" name="removeOrderComponentPendingCashRefundRQ" nillable="true" type="q23:RemoveOrderComponentPendingCashRefundRQ" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveOrderComponentPendingCashRefundResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/ORXCore.WebServicesAPI.Order" minOccurs="0" name="RemoveOrderComponentPendingCashRefundResult" nillable="true" type="q24:RemoveOrderComponentPendingCashRefundRS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessShellInvoice">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/ORXCore.WebServicesAPI.Order" minOccurs="0" name="processShellInvoiceRQ" nillable="true" type="q25:ProcessShellInvoiceRQ" />
+        <xs:element minOccurs="0" name="providerLocator" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessShellInvoiceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProcessShellInvoiceResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddDirtyPnrInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/ORXCore.WebServicesAPI.Order" minOccurs="0" name="addDirtPnrInfoRQ" nillable="true" type="q26:AddDirtyPnrInfoRQ" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddDirtyPnrInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/ORXCore.WebServicesAPI.Order" minOccurs="0" name="AddDirtyPnrInfoResult" nillable="true" type="q27:DirtyPnrInfoRS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessDirtyPnrInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/ORXCore.WebServicesAPI.Order" minOccurs="0" name="processDirtyPnrInfoRQ" nillable="true" type="q28:ProcessDirtyPnrInfoRQ" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessDirtyPnrInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/ORXCore.WebServicesAPI.Order" minOccurs="0" name="ProcessDirtyPnrInfoResult" nillable="true" type="q29:DirtyPnrInfoRS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessAutoResendDirtyPnrInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/ORXCore.WebServicesAPI.Order" minOccurs="0" name="processAutoResendDirtyPnrInfoRQ" nillable="true" type="q30:ProcessAutoResendDirtyPnrInfoRQ" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessAutoResendDirtyPnrInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/ORXCore.WebServicesAPI.Order" minOccurs="0" name="ProcessAutoResendDirtyPnrInfoResult" nillable="true" type="q31:DirtyPnrInfoRS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveDirtyPnrInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/ORXCore.WebServicesAPI.Order" minOccurs="0" name="retrieveDirtyPnrInfoRQ" nillable="true" type="q32:RetrieveDirtyPnrInfoRQ" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveDirtyPnrInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/ORXCore.WebServicesAPI.Order" minOccurs="0" name="RetrieveDirtyPnrInfoResult" nillable="true" type="q33:RetrieveDirtyPnrInfoRS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

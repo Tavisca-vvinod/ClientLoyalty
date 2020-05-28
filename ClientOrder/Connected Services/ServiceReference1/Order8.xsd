@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Tavisca.TravelNxt.Trips.DataContracts" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Tavisca.TravelNxt.Trips.DataContracts" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:57361/Order.svc?xsd=xsd2" namespace="http://tavisca.com" />
+  <xs:complexType name="SecureAuthenticationData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ACSUrl" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://tavisca.com" minOccurs="0" name="AdditionalInfo" nillable="true" type="q1:ArrayOfStateBag" />
+      <xs:element minOccurs="0" name="MD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PaReq" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SecureAuthenticationData" nillable="true" type="tns:SecureAuthenticationData" />
+</xs:schema>

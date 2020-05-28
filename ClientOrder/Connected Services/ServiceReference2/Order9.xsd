@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Tavisca.TravelNxt.Air.DataContracts" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Tavisca.TravelNxt.Air.DataContracts" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:57361/Order.svc?xsd=xsd2" namespace="http://tavisca.com" />
+  <xs:complexType name="AirPolicy">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://tavisca.com" base="q1:Policy">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AirPolicy" nillable="true" type="tns:AirPolicy" />
+  <xs:complexType name="ArrayOfAirPolicy">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AirPolicy" nillable="true" type="tns:AirPolicy" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAirPolicy" nillable="true" type="tns:ArrayOfAirPolicy" />
+</xs:schema>

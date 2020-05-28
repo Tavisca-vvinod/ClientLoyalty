@@ -1,0 +1,574 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="ORXCore.WebServicesAPI" elementFormDefault="qualified" targetNamespace="ORXCore.WebServicesAPI" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:57361/Order.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:57361/Order.svc?xsd=xsd12" namespace="ORXCore.WebServicesAPI.Enums" />
+  <xs:import schemaLocation="http://localhost:57361/Order.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:57361/Order.svc?xsd=xsd13" namespace="ORXCore.WebServicesAPI.DTO.Enums" />
+  <xs:import schemaLocation="http://localhost:57361/Order.svc?xsd=xsd14" namespace="ORXCore.WebServicesAPI.DTO" />
+  <xs:import schemaLocation="http://localhost:57361/Order.svc?xsd=xsd16" namespace="http://schemas.datacontract.org/2004/07/ORXCore.WebServicesAPI.DTO" />
+  <xs:complexType name="OrderNotifyOfScheduleChangeRQ">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:WebServiceRQ">
+        <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="LocatorList" nillable="true" type="q1:ArrayOfstring" />
+          <xs:element minOccurs="0" name="SuperPNR" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OrderNotifyOfScheduleChangeRQ" nillable="true" type="tns:OrderNotifyOfScheduleChangeRQ" />
+  <xs:complexType name="WebServiceRQ">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientId" type="xs:int" />
+      <xs:element minOccurs="0" name="ClientProgramGroupID" nillable="true" type="xs:int" />
+      <xs:element xmlns:q2="ORXCore.WebServicesAPI.Enums" minOccurs="0" name="Mode" type="q2:ExecutionMode" />
+      <xs:element minOccurs="0" name="ProgramID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="RequestedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tag" type="ser:guid" />
+      <xs:element minOccurs="0" name="TimeStamp" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TransitCode" type="ser:guid" />
+      <xs:element xmlns:q3="ORXCore.WebServicesAPI.DTO.Enums" minOccurs="0" name="UserType" type="q3:UserType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WebServiceRQ" nillable="true" type="tns:WebServiceRQ" />
+  <xs:complexType name="OrderNotifyOfScheduleChangeRS">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:WebServiceRS">
+        <xs:sequence>
+          <xs:element xmlns:q4="ORXCore.WebServicesAPI.DTO" minOccurs="0" name="ErrorMessage" nillable="true" type="q4:ErrorMessage" />
+          <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="LocatorResultList" nillable="true" type="q5:ArrayOfKeyValueOfstringProcessResultVS8WdNo_P" />
+          <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SuperPNR" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OrderNotifyOfScheduleChangeRS" nillable="true" type="tns:OrderNotifyOfScheduleChangeRS" />
+  <xs:complexType name="WebServiceRS">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Tag" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WebServiceRS" nillable="true" type="tns:WebServiceRS" />
+  <xs:simpleType name="ComponentType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Activity" />
+      <xs:enumeration value="Air" />
+      <xs:enumeration value="Car" />
+      <xs:enumeration value="Cruise" />
+      <xs:enumeration value="Hotel" />
+      <xs:enumeration value="Package" />
+      <xs:enumeration value="RetailProduct" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ComponentType" nillable="true" type="tns:ComponentType" />
+  <xs:complexType name="TripCartRS">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Messaging" nillable="true" type="tns:ArrayOfMessage" />
+      <xs:element minOccurs="0" name="PaymentDistributions" nillable="true" type="tns:ArrayOfPaymentDistribution" />
+      <xs:element minOccurs="0" name="PaymentOptions" nillable="true" type="tns:ArrayOfPaymentOption" />
+      <xs:element minOccurs="0" name="PromoCodeItems" nillable="true" type="tns:ArrayOfPromoCodeInfo" />
+      <xs:element minOccurs="0" name="TotalPaymentDistributions" nillable="true" type="tns:ArrayOfTotalPaymentDistribution" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TripCartRS" nillable="true" type="tns:TripCartRS" />
+  <xs:complexType name="ArrayOfMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Message" nillable="true" type="tns:Message" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMessage" nillable="true" type="tns:ArrayOfMessage" />
+  <xs:complexType name="Message">
+    <xs:sequence>
+      <xs:element xmlns:q6="ORXCore.WebServicesAPI.DTO.Enums" minOccurs="0" name="MessageType" type="q6:MessageType" />
+      <xs:element minOccurs="0" name="RuleGroupId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Message" nillable="true" type="tns:Message" />
+  <xs:complexType name="ArrayOfPaymentDistribution">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PaymentDistribution" nillable="true" type="tns:PaymentDistribution" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPaymentDistribution" nillable="true" type="tns:ArrayOfPaymentDistribution" />
+  <xs:complexType name="PaymentDistribution">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PaxQuantity" type="xs:int" />
+      <xs:element minOccurs="0" name="PaymentDistributions" nillable="true" type="tns:ArrayOfTotalPaymentDistribution" />
+      <xs:element minOccurs="0" name="RuleGroupId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tag" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PaymentDistribution" nillable="true" type="tns:PaymentDistribution" />
+  <xs:complexType name="ArrayOfTotalPaymentDistribution">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TotalPaymentDistribution" nillable="true" type="tns:TotalPaymentDistribution" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTotalPaymentDistribution" nillable="true" type="tns:ArrayOfTotalPaymentDistribution" />
+  <xs:complexType name="TotalPaymentDistribution">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DistributionAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="DistributionType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TotalPaymentDistribution" nillable="true" type="tns:TotalPaymentDistribution" />
+  <xs:complexType name="ArrayOfPaymentOption">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PaymentOption" nillable="true" type="tns:PaymentOption" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPaymentOption" nillable="true" type="tns:ArrayOfPaymentOption" />
+  <xs:complexType name="PaymentOption">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AddToFareQuote" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Attributes" nillable="true" type="tns:ArrayOfAttribute" />
+      <xs:element minOccurs="0" name="ClientPrice" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CrossOffFareQuote" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CurrencyOptions" nillable="true" type="tns:ArrayOfCurrencyOption" />
+      <xs:element minOccurs="0" name="DiscountAmount" type="xs:decimal" />
+      <xs:element xmlns:q7="ORXCore.WebServicesAPI.DTO.Enums" minOccurs="0" name="DiscountDisplayType" type="q7:DiscountType" />
+      <xs:element minOccurs="0" name="FareQuote" type="xs:decimal" />
+      <xs:element minOccurs="0" name="FareQuoteAdjustment" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Fees" nillable="true" type="tns:ArrayOfFee" />
+      <xs:element minOccurs="0" name="IncrementAmount" nillable="true" type="xs:decimal" />
+      <xs:element xmlns:q8="ORXCore.WebServicesAPI.DTO.Enums" minOccurs="0" name="IncrementRoundingType" type="q8:IncrementRoundingType" />
+      <xs:element minOccurs="0" name="IsDeposit" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MarkupAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="MaxValue" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ProgramCurrencyMinimum" nillable="true" type="xs:decimal" />
+      <xs:element xmlns:q9="ORXCore.WebServicesAPI.DTO.Enums" minOccurs="0" name="ProgramCurrencyMinimumTypeDescription" type="q9:ProgramCurrencyMinimumType" />
+      <xs:element minOccurs="0" name="ProgramCurrencyMinimumTypeId" type="xs:int" />
+      <xs:element minOccurs="0" name="Rank" nillable="true" type="xs:short" />
+      <xs:element minOccurs="0" name="RequiresBinValidation" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RequiresOrderhistoryValidation" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RewardsAvailable" nillable="true" type="xs:short" />
+      <xs:element minOccurs="0" name="RuleGroupDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RuleGroupId" type="xs:int" />
+      <xs:element minOccurs="0" name="RuleGroupName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q10="ORXCore.WebServicesAPI.DTO.Enums" minOccurs="0" name="RuleGroupType" type="q10:RuleGroupType" />
+      <xs:element minOccurs="0" name="RuleGroupTypeId" type="xs:int" />
+      <xs:element minOccurs="0" name="ShortfallFactor" nillable="true" type="xs:decimal" />
+      <xs:element xmlns:q11="ORXCore.WebServicesAPI.DTO.Enums" minOccurs="0" name="ShortfallFactorTypeDescription" type="q11:MathOperatorType" />
+      <xs:element minOccurs="0" name="ShortfallFactorTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="UnitSupplierFee" type="xs:decimal" />
+      <xs:element minOccurs="0" name="UnitTax" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PaymentOption" nillable="true" type="tns:PaymentOption" />
+  <xs:complexType name="ArrayOfAttribute">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Attribute" nillable="true" type="tns:Attribute" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAttribute" nillable="true" type="tns:ArrayOfAttribute" />
+  <xs:complexType name="Attribute">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Attribute" nillable="true" type="tns:Attribute" />
+  <xs:complexType name="ArrayOfCurrencyOption">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CurrencyOption" nillable="true" type="tns:CurrencyOption" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCurrencyOption" nillable="true" type="tns:ArrayOfCurrencyOption" />
+  <xs:complexType name="CurrencyOption">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Currencies" nillable="true" type="tns:ArrayOfCurrency" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CurrencyOption" nillable="true" type="tns:CurrencyOption" />
+  <xs:complexType name="ArrayOfCurrency">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Currency" nillable="true" type="tns:Currency" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCurrency" nillable="true" type="tns:ArrayOfCurrency" />
+  <xs:complexType name="Currency">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Amount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CrossOffAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="DecimalPlaces" type="xs:int" />
+      <xs:element minOccurs="0" name="PointCalculationFactor" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Currency" nillable="true" type="tns:Currency" />
+  <xs:complexType name="ArrayOfFee">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Fee" nillable="true" type="tns:Fee" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFee" nillable="true" type="tns:ArrayOfFee" />
+  <xs:complexType name="Fee">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CurrencyOptions" nillable="true" type="tns:ArrayOfCurrencyOption" />
+      <xs:element minOccurs="0" name="FeeDisplayType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FeeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FeeTypeId" type="xs:int" />
+      <xs:element minOccurs="0" name="MaxFee" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Minimum" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="RuleSetId" type="xs:int" />
+      <xs:element minOccurs="0" name="ShortFallFactor" nillable="true" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Fee" nillable="true" type="tns:Fee" />
+  <xs:complexType name="ArrayOfPromoCodeInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PromoCodeInfo" nillable="true" type="tns:PromoCodeInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPromoCodeInfo" nillable="true" type="tns:ArrayOfPromoCodeInfo" />
+  <xs:complexType name="PromoCodeInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PromoCodeAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PromoCodeType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tag" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PromoCodeInfo" nillable="true" type="tns:PromoCodeInfo" />
+  <xs:complexType name="TripCartRQ">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActivityOption" nillable="true" type="tns:ActivityFare" />
+      <xs:element minOccurs="0" name="ActivityOptions" nillable="true" type="tns:ArrayOfActivityFare" />
+      <xs:element minOccurs="0" name="AirOption" nillable="true" type="tns:FlightFare" />
+      <xs:element minOccurs="0" name="CarOption" nillable="true" type="tns:CarFare" />
+      <xs:element minOccurs="0" name="CarOptions" nillable="true" type="tns:ArrayOfCarFare" />
+      <xs:element minOccurs="0" name="DateOfBooking" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EndOfTravel" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="HotelOption" nillable="true" type="tns:HotelRoom" />
+      <xs:element minOccurs="0" name="HotelOptions" nillable="true" type="tns:ArrayOfHotelRoom" />
+      <xs:element minOccurs="0" name="PromoCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StartOfTravel" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TotalActivityAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TotalActivityAmountAsPointValue" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TotalActivityCashUsed" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TotalActivityProgramCurrency" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TotalAirAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TotalAirAmountAsPointValue" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TotalAirCashUsed" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TotalAirProgramCurrency" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TotalCarAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TotalCarAmountAsPointValue" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TotalCarCashUsed" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TotalCarProgramCurrency" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TotalCashUsed" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TotalHotelAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TotalHotelAmountAsPointValue" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TotalHotelCashUsed" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TotalHotelCost" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TotalHotelProgramCurrency" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TotalPointsUsed" type="xs:int" />
+      <xs:element minOccurs="0" name="VariantCurrency" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TripCartRQ" nillable="true" type="tns:TripCartRQ" />
+  <xs:complexType name="ActivityFare">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:TravelVariant">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AverageVariantTotalCost" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CashUsed" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Category" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CostOfGoods" type="xs:decimal" />
+          <xs:element minOccurs="0" name="DefaultSort" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Destination" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ExchangeRate" type="xs:decimal" />
+          <xs:element minOccurs="0" name="IsPreffered" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LowestPoints" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PaymentOptions" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PointsUsed" type="xs:int" />
+          <xs:element minOccurs="0" name="TotalAmountAsPointValue" type="xs:decimal" />
+          <xs:element minOccurs="0" name="VariantCurrency" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VariantTotalCost" nillable="true" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ActivityFare" nillable="true" type="tns:ActivityFare" />
+  <xs:complexType name="TravelVariant">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BaseFare" type="xs:decimal" />
+      <xs:element minOccurs="0" name="NetRate" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Tag" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TravelVariant" nillable="true" type="tns:TravelVariant" />
+  <xs:complexType name="FlightFare">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:TravelVariant">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AirlineCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AirlineName" nillable="true" type="xs:string" />
+          <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AirportsInDeparture" nillable="true" type="q12:ArrayOfstring" />
+          <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AirportsInReturn" nillable="true" type="q13:ArrayOfstring" />
+          <xs:element minOccurs="0" name="ApplyPricingOverride" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ArrivalAirport" nillable="true" type="xs:string" />
+          <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ArrivalAirports" nillable="true" type="q14:ArrayOfstring" />
+          <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ArrivalCities" nillable="true" type="q15:ArrayOfstring" />
+          <xs:element minOccurs="0" name="AverageNegotiatedTicketTotalCost" nillable="true" type="tns:Price" />
+          <xs:element minOccurs="0" name="AveragePublishedTicketTotalCost" nillable="true" type="tns:Price" />
+          <xs:element minOccurs="0" name="AverageTicketTotalCost" nillable="true" type="tns:Price" />
+          <xs:element minOccurs="0" name="CabinClass" nillable="true" type="xs:string" />
+          <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CabinClasses" nillable="true" type="q16:ArrayOfstring" />
+          <xs:element minOccurs="0" name="CashUsed" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CostOfGoods" nillable="true" type="tns:Price" />
+          <xs:element xmlns:q17="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DepartureAirports" nillable="true" type="q17:ArrayOfstring" />
+          <xs:element xmlns:q18="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DepartureCities" nillable="true" type="q18:ArrayOfstring" />
+          <xs:element minOccurs="0" name="DestinationAirport" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ExchangeRate" type="xs:decimal" />
+          <xs:element minOccurs="0" name="FareType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FuelFee" nillable="true" type="tns:Price" />
+          <xs:element minOccurs="0" name="FuelSurcharge" type="xs:decimal" />
+          <xs:element minOccurs="0" name="IsETicket" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsMixedCarrier" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsNegotiatedFare" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsRoundTrip" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LeaveDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="LowestCost" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="MarginPercentage" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Markup" type="xs:double" />
+          <xs:element minOccurs="0" name="NumberOfStops" type="xs:int" />
+          <xs:element minOccurs="0" name="OriginAirport" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OriginCity" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PaymentOptions" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PointsUsed" type="xs:int" />
+          <xs:element minOccurs="0" name="ReferenceBaseFare" type="xs:double" />
+          <xs:element minOccurs="0" name="ReferenceFuelSurcharge" type="xs:double" />
+          <xs:element minOccurs="0" name="ReferenceTotalTaxes" type="xs:double" />
+          <xs:element minOccurs="0" name="ReferenceVatAmount" type="xs:double" />
+          <xs:element minOccurs="0" name="ReturnDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="SearchCriteriaUsed" type="xs:boolean" />
+          <xs:element minOccurs="0" name="SecurityFee" nillable="true" type="tns:Price" />
+          <xs:element minOccurs="0" name="TaxesAndFees" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TicketCount" type="xs:int" />
+          <xs:element minOccurs="0" name="TicketCurrency" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TicketTotalCost" nillable="true" type="tns:Price" />
+          <xs:element minOccurs="0" name="TotalAmountAsPointValue" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TotalTax" type="xs:double" />
+          <xs:element minOccurs="0" name="VatAmount" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FlightFare" nillable="true" type="tns:FlightFare" />
+  <xs:complexType name="Price">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CrossOffAmount" type="xs:double" />
+      <xs:element minOccurs="0" name="FullPaymentAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="MinimumDepositAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Price" nillable="true" type="tns:Price" />
+  <xs:complexType name="CarFare">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:TravelVariant">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CarLocation" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CashUsed" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Category" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CompanyCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CompanyName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ExchangeRate" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Markup" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PaymentOptions" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PickUpDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PointsUsed" type="xs:int" />
+          <xs:element minOccurs="0" name="RentalClass" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RentalTotalCost" nillable="true" type="tns:Price" />
+          <xs:element minOccurs="0" name="ReturnDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="SippCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TotalAmountAsPointValue" type="xs:decimal" />
+          <xs:element minOccurs="0" name="UnlimitedMileageIncluded" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CarFare" nillable="true" type="tns:CarFare" />
+  <xs:complexType name="Sailing">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:TravelVariant">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ArrivalPort" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CabinCurrency" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CabinPrice" nillable="true" type="tns:Price" />
+          <xs:element minOccurs="0" name="CabinType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CruiseLineCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DeparturePort" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Duration" type="xs:int" />
+          <xs:element minOccurs="0" name="End" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FareType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PaymentOptions" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ShipCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Start" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="TotalAmountAsPointValue" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ZoneNumber" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Sailing" nillable="true" type="tns:Sailing" />
+  <xs:complexType name="HotelRoom">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:TravelVariant">
+        <xs:sequence>
+          <xs:element xmlns:q19="ORXCore.WebServicesAPI.DTO" minOccurs="0" name="Address" nillable="true" type="q19:Address" />
+          <xs:element minOccurs="0" name="AverageRoomTotalCost" nillable="true" type="tns:Price" />
+          <xs:element minOccurs="0" name="CashUsed" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Chain" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CheckIn" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CheckOut" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CrossOffAmount" nillable="true" type="xs:string" />
+          <xs:element xmlns:q20="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DailyRates" nillable="true" type="q20:ArrayOfdecimal" />
+          <xs:element minOccurs="0" name="ExchangeRate" type="xs:decimal" />
+          <xs:element minOccurs="0" name="HasRooms" type="xs:boolean" />
+          <xs:element minOccurs="0" name="HotelName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HotelPropertyID" type="xs:int" />
+          <xs:element minOccurs="0" name="Markup" type="xs:decimal" />
+          <xs:element minOccurs="0" name="NetCrossOffAmount" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NumOfAdults" type="xs:int" />
+          <xs:element minOccurs="0" name="NumOfChild" type="xs:int" />
+          <xs:element minOccurs="0" name="PaymentOptions" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PointsUsed" type="xs:int" />
+          <xs:element minOccurs="0" name="Rating" type="xs:float" />
+          <xs:element minOccurs="0" name="RatingType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RoomCurrency" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RoomTotalCost" nillable="true" type="tns:Price" />
+          <xs:element minOccurs="0" name="TotalAmountAsPointValue" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TotalFee" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TotalTax" type="xs:decimal" />
+          <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/ORXCore.WebServicesAPI.DTO" minOccurs="0" name="TripAdvisorInfo" nillable="true" type="q21:ManualHotelResult" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="HotelRoom" nillable="true" type="tns:HotelRoom" />
+  <xs:complexType name="ArrayOfActivityFare">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ActivityFare" nillable="true" type="tns:ActivityFare" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfActivityFare" nillable="true" type="tns:ArrayOfActivityFare" />
+  <xs:complexType name="ArrayOfCarFare">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CarFare" nillable="true" type="tns:CarFare" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCarFare" nillable="true" type="tns:ArrayOfCarFare" />
+  <xs:complexType name="ArrayOfHotelRoom">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HotelRoom" nillable="true" type="tns:HotelRoom" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHotelRoom" nillable="true" type="tns:ArrayOfHotelRoom" />
+  <xs:complexType name="TripCartFeeRQ">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActivityQuantity" type="xs:int" />
+      <xs:element minOccurs="0" name="ActivitySelectedRuleGroups" nillable="true" type="tns:ArrayOfRuleGroupQuantity" />
+      <xs:element minOccurs="0" name="AirPurchaseQuantity" type="xs:int" />
+      <xs:element minOccurs="0" name="AirPurchaseSelectedRuleGroups" nillable="true" type="tns:ArrayOfRuleGroupQuantity" />
+      <xs:element minOccurs="0" name="AirRedemptionQuantity" type="xs:int" />
+      <xs:element minOccurs="0" name="AirRedemptionSelectedRuleGroups" nillable="true" type="tns:ArrayOfRuleGroupQuantity" />
+      <xs:element minOccurs="0" name="CarQuantity" type="xs:int" />
+      <xs:element minOccurs="0" name="CarSelectedRuleGroups" nillable="true" type="tns:ArrayOfRuleGroupQuantity" />
+      <xs:element minOccurs="0" name="HotelQuantity" type="xs:int" />
+      <xs:element minOccurs="0" name="HotelSelectedRuleGroups" nillable="true" type="tns:ArrayOfRuleGroupQuantity" />
+      <xs:element minOccurs="0" name="VariantCurrency" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TripCartFeeRQ" nillable="true" type="tns:TripCartFeeRQ" />
+  <xs:complexType name="ArrayOfRuleGroupQuantity">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RuleGroupQuantity" nillable="true" type="tns:RuleGroupQuantity" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRuleGroupQuantity" nillable="true" type="tns:ArrayOfRuleGroupQuantity" />
+  <xs:complexType name="RuleGroupQuantity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Quantity" type="xs:int" />
+      <xs:element minOccurs="0" name="RuleGroupID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RuleGroupQuantity" nillable="true" type="tns:RuleGroupQuantity" />
+  <xs:complexType name="TripCartFeeRS">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PaymentOptions" nillable="true" type="tns:ArrayOfPaymentOption" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TripCartFeeRS" nillable="true" type="tns:TripCartFeeRS" />
+  <xs:complexType name="ValidationRQ">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="RequestedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TransitCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ValidationItems" nillable="true" type="tns:ArrayOfValidationItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ValidationRQ" nillable="true" type="tns:ValidationRQ" />
+  <xs:complexType name="ArrayOfValidationItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ValidationItem" nillable="true" type="tns:ValidationItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfValidationItem" nillable="true" type="tns:ArrayOfValidationItem" />
+  <xs:complexType name="ValidationItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ComponentType" type="tns:ComponentType" />
+      <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="RuleGroupId" type="xs:int" />
+      <xs:element xmlns:q22="ORXCore.WebServicesAPI.DTO.Enums" minOccurs="0" name="RuleGroupType" type="q22:RuleGroupType" />
+      <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ValidationItem" nillable="true" type="tns:ValidationItem" />
+  <xs:complexType name="HotelValidationItem">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ValidationItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Address1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HotelName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ItineraryId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="HotelValidationItem" nillable="true" type="tns:HotelValidationItem" />
+  <xs:complexType name="AirValidationItem">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ValidationItem">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AirValidationItem" nillable="true" type="tns:AirValidationItem" />
+  <xs:complexType name="CarValidationItem">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ValidationItem">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CarValidationItem" nillable="true" type="tns:CarValidationItem" />
+  <xs:complexType name="ActivityValidationItem">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ValidationItem">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ActivityValidationItem" nillable="true" type="tns:ActivityValidationItem" />
+  <xs:complexType name="ValidationRS">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="xs:int" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Success" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ValidationRS" nillable="true" type="tns:ValidationRS" />
+</xs:schema>
